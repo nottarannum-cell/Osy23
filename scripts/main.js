@@ -9,9 +9,36 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-// ---- Auth modal & API logic ----
+    // Image error handling
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('error', function() {
+            if (!this.dataset.fallback) {
+                this.dataset.fallback = 'true';
+                const svg = createImagePlaceholder(this.alt || 'Image');
+                this.parentNode.replaceChild(svg, this);
+            }
+        });
+    });
 
-const API_BASE = 'http://localhost:4000/api'; // adjust if backend URL changes
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (mobileMenu && !mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+
+    // Auth modal logic
+    initAuthModal();
+});
+
+// ---- Auth modal & Supabase logic ----
+
+// Initialize Supabase client in the browser
+const SUPABASE_URL = 'https://jfnpwifbdndnjfxuicsd.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmbnB3aWZiZG5kbmpmeHVpY3NkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY1MDg1MTUsImV4cCI6MjA4MjA4NDUxNX0.f0X_L3sjyqbbPjW9DuarvhRiUGc3b1ElkDmMqjy_sa8';
+
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 function initAuthModal() {
     const openBtn = document.getElementById('auth-open-btn');
@@ -94,26 +121,30 @@ function initAuthModal() {
         setLoading(submitBtn, true);
         messageEl.textContent = '';
 
-        const endpoint = mode === 'signup' ? '/auth/signup' : '/auth/login';
-
         try {
-            const response = await fetch(API_BASE + endpoint, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
-            });
+            if (mode === 'signup') {
+                const { data, error } = await supabaseClient.auth.signUp({
+                    email,
+                    password,
+                });
 
-            const data = await response.json().catch(() => ({}));
+                if (error) throw error;
 
-            if (!response.ok || data.error) {
-                throw new Error(data.message || 'Something went wrong.');
+                messageEl.textContent = 'Signup successful. Please check your email to confirm your account.';
+                messageEl.classList.remove('text-red-500');
+                messageEl.classList.add('text-green-600');
+            } else {
+                const { data, error } = await supabaseClient.auth.signInWithPassword({
+                    email,
+                    password,
+                });
+
+                if (error) throw error;
+
+                messageEl.textContent = 'Login successful.';
+                messageEl.classList.remove('text-red-500');
+                messageEl.classList.add('text-green-600');
             }
-
-            messageEl.textContent = data.message || (mode === 'signup' ? 'Account created successfully.' : 'Logged in successfully.');
-            messageEl.classList.remove('text-red-500');
-            messageEl.classList.add('text-green-600');
         } catch (error) {
             messageEl.textContent = error.message || 'Unable to complete request.';
             messageEl.classList.remove('text-green-600');
