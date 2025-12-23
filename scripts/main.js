@@ -41,7 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
 const SUPABASE_URL = 'https://jfnpwifbdndnjfxuicsd.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmbnB3aWZiZG5kbmpmeHVpY3NkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY1MDg1MTUsImV4cCI6MjA4MjA4NDUxNX0.f0X_L3sjyqbbPjW9DuarvhRiUGc3b1ElkDmMqjy_sa8';
 
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+let supabaseClient = null;
+if (window.supabase && typeof window.supabase.createClient === 'function') {
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+} else {
+    console.warn('Supabase JS library not loaded; auth features will be disabled on this page.');
+}
 
 function renderAuthState(user) {
     const container = document.getElementById('nav-auth-status');
