@@ -86,7 +86,7 @@ const routineTemplates = {
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('routine-form');
     
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
         const formData = {
@@ -103,8 +103,13 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Generate routine (mock - will call API later)
-        generateRoutine(formData);
+        // Generate and show routine
+        const routineData = generateRoutine(formData);
+
+        // Attempt to save to Supabase for logged-in user (non-blocking for UI)
+        saveRoutineForCurrentUser(routineData).catch((err) => {
+            console.error('Failed to save routine to Supabase:', err);
+        });
     });
 });
 
@@ -116,6 +121,8 @@ function generateRoutine(data) {
         name: data.name,
         scalpType: data.scalpType,
         hairPorosity: data.hairPorosity,
+        hairLength: data.hairLength || '',
+        concerns: data.concerns || '',
         routine: template.routine
     };
 
@@ -125,6 +132,42 @@ function generateRoutine(data) {
     
     // Scroll to results
     resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
 
+    return routineData;
+}
+ 
+async function saveRoutineForCurrentUser(routineData) {
+    // Supabase client is created globally in main.js
+    if (typeof supabaseClient === 'undefined') {
+        console.warn('Supabase client not available on this page; routine will not be saved.');
+        return;
+    }
+
+    const { data: userData, error: userError } = await supabaseClient.auth.getUser();
+    if (userError || !userData || !userData.user) {
+        // Not logged in; do not save but do not block the user either
+        console.info('User is not logged in; routine not saved to Supabase.');
+        return;
+    }
+
+    const user = userData.user;
+
+    const payload = {
+        user_id: user.id,
+        title: `Routine for ${routineData.name} (${routineData.scalpType} / ${routineData.hairPorosity})`,
+        routine: {
+            name: routineData.name,
+            scalpType: routineData.scalpType,
+            hairPorosity: routineData.hairPorosity,
+            hairLength: routineData.hairLength,
+            concerns: routineData.concerns,
+            steps: routineData.routine
+        }
+    };
+
+    const { error } = await supabaseClient.from('saved_routines').insert(payload);
+    if (error) {
+        throw error;
+    }
+}
 
