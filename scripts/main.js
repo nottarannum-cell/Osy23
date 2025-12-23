@@ -30,6 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Auth modal logic
     initAuthModal();
+
+    // Check existing Supabase session and show navbar auth state
+    initAuthStateFromSession();
 });
 
 // ---- Auth modal & Supabase logic ----
@@ -39,6 +42,43 @@ const SUPABASE_URL = 'https://jfnpwifbdndnjfxuicsd.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmbnB3aWZiZG5kbmpmeHVpY3NkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY1MDg1MTUsImV4cCI6MjA4MjA4NDUxNX0.f0X_L3sjyqbbPjW9DuarvhRiUGc3b1ElkDmMqjy_sa8';
 
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+function renderAuthState(user) {
+    const container = document.getElementById('nav-auth-status');
+    if (!container) return;
+
+    if (user && user.email) {
+        container.innerHTML = `
+            <span class="text-gray-700">
+                Logged in as <strong>${user.email}</strong>
+            </span>
+            <button id="logout-btn" class="px-3 py-1.5 rounded-full border border-pink-500 text-pink-600 text-xs font-medium hover:bg-pink-50 transition">
+                Logout
+            </button>
+        `;
+        container.classList.remove('hidden');
+
+        const logoutBtn = document.getElementById('logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', async () => {
+                await supabaseClient.auth.signOut();
+                renderAuthState(null);
+            });
+        }
+    } else {
+        container.innerHTML = '';
+        container.classList.add('hidden');
+    }
+}
+
+async function initAuthStateFromSession() {
+    const { data, error } = await supabaseClient.auth.getUser();
+    if (!error && data && data.user) {
+        renderAuthState(data.user);
+    } else {
+        renderAuthState(null);
+    }
+}
 
 function initAuthModal() {
     const openBtn = document.getElementById('auth-open-btn');
@@ -160,6 +200,8 @@ function initAuthModal() {
                     }
                 } else {
                     messageEl.textContent = 'Login successful.';
+                    renderAuthState(data.user);
+                    closeModal();
                 }
                 messageEl.classList.remove('text-red-500');
                 messageEl.classList.add('text-green-600');
