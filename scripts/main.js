@@ -158,30 +158,6 @@ function initAuthModal() {
     updateTexts();
 }
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-        if (mobileMenu && !mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
-            mobileMenu.classList.add('hidden');
-        }
-    });
-
-    // Image error handling
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        img.addEventListener('error', function() {
-            if (!this.dataset.fallback) {
-                this.dataset.fallback = 'true';
-                // Create SVG placeholder
-                const svg = createImagePlaceholder(this.alt || 'Image');
-                this.parentNode.replaceChild(svg, this);
-            }
-        });
-    });
-
-    // Auth modal logic
-    initAuthModal();
-});
-
 // Create SVG placeholder for failed images
 function createImagePlaceholder(alt) {
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
