@@ -138,7 +138,7 @@ function generateRoutine(data) {
  
 async function saveRoutineForCurrentUser(routineData) {
     // Supabase client is created globally in main.js
-    if (typeof supabaseClient === 'undefined') {
+    if (!supabaseClient) {
         console.warn('Supabase client not available on this page; routine will not be saved.');
         return;
     }
