@@ -1,0 +1,178 @@
+/* Custom CSS Variables */
+:root {
+    --baby-pink: #FFDDE6;
+    --sky-blue: #CFEFFF;
+    --pink-600: #DB2777;
+    --blue-500: #3B82F6;
+}
+
+/* Font Families */
+.font-heading {
+    font-family: 'Poppins', 'Nunito', sans-serif;
+}
+
+.font-body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom Tailwind Config */
+@layer utilities {
+    .btn-primary {
+        @apply bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-4 rounded-full font-heading font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
+    }
+
+    .btn-secondary {
+        @apply bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-full font-heading font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
+    }
+
+    .btn-tertiary {
+        @apply bg-gradient-to-r from-purple-500 to-purple-600 text-white px-8 py-4 rounded-full font-heading font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
+    }
+
+    .feature-card {
+        @apply bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-center border border-pink-100;
+    }
+
+    .card {
+        @apply bg-white rounded-2xl p-6 shadow-lg border border-pink-100;
+    }
+
+    .input-field {
+        @apply w-full px-4 py-3 rounded-xl border-2 border-pink-200 focus:border-pink-500 focus:outline-none transition-colors;
+    }
+
+    .select-field {
+        @apply w-full px-4 py-3 rounded-xl border-2 border-pink-200 focus:border-pink-500 focus:outline-none transition-colors bg-white;
+    }
+}
+
+/* Floating Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes float-slow {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-delayed {
+    animation: float 3s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+.floating-slow {
+    animation: float-slow 4s ease-in-out infinite;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--baby-pink);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--pink-600);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #BE185D;
+}
+
+/* Focus Styles for Accessibility */
+*:focus {
+    outline: 2px solid var(--pink-600);
+    outline-offset: 2px;
+}
+
+button:focus,
+a:focus {
+    outline: 2px solid var(--pink-600);
+    outline-offset: 2px;
+}
+
+/* Loading States */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Result Cards */
+.result-card {
+    @apply bg-gradient-to-br from-pink-50 to-blue-50 rounded-2xl p-8 shadow-xl border-2 border-pink-200;
+}
+
+/* Test Card */
+.test-card {
+    @apply bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-blue-100 cursor-pointer;
+}
+
+.test-card.selected {
+    @apply border-2 border-pink-500 bg-pink-50;
+}
+
+/* Concern Card */
+.concern-card {
+    @apply bg-white rounded-xl p-6 shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-pink-100 cursor-pointer;
+}
+
+.concern-details {
+    @apply mt-4 p-4 bg-gradient-to-br from-pink-50 to-blue-50 rounded-xl border border-pink-200;
+}
+
+/* Mistake Card */
+.mistake-card {
+    @apply bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400;
+}
+
+/* Oil Card */
+.oil-card {
+    @apply bg-gradient-to-br from-white to-pink-50 rounded-2xl p-6 shadow-lg border-2 border-pink-200 hover:shadow-xl transform hover:scale-105 transition-all duration-300;
+}
+
+/* Ingredient Card */
+.ingredient-card {
+    @apply bg-white rounded-xl p-5 shadow-md border border-blue-100 hover:shadow-lg transition-all duration-300;
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+    .text-5xl {
+        font-size: 2.5rem;
+    }
+    
+    .text-7xl {
+        font-size: 3.5rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none;
+    }
+}
+
+

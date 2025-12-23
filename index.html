@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowYourHair - Learn.Care.Glow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="font-body bg-gradient-to-br from-pink-50 to-blue-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-heading font-bold text-pink-600">KnowYourHair</a>
+                <div class="hidden md:flex gap-6">
+                    <a href="index.html" class="text-gray-700 hover:text-pink-600 transition">Home</a>
+                    <a href="pages/take-test.html" class="text-gray-700 hover:text-pink-600 transition">Take Test</a>
+                    <a href="pages/get-routine.html" class="text-gray-700 hover:text-pink-600 transition">Get Routine</a>
+                    <a href="pages/scalp-analysis.html" class="text-gray-700 hover:text-pink-600 transition">Scalp Analysis</a>
+                    <a href="pages/oils.html" class="text-gray-700 hover:text-pink-600 transition">Oils</a>
+                    <a href="pages/ingredients.html" class="text-gray-700 hover:text-pink-600 transition">Ingredients</a>
+                    <a href="pages/mistakes.html" class="text-gray-700 hover:text-pink-600 transition">Mistakes</a>
+                    <a href="pages/concerns.html" class="text-gray-700 hover:text-pink-600 transition">Concerns</a>
+                    <a href="pages/about.html" class="text-gray-700 hover:text-pink-600 transition">About</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-pink-600">Home</a>
+                <a href="pages/take-test.html" class="block py-2 text-gray-700 hover:text-pink-600">Take Test</a>
+                <a href="pages/get-routine.html" class="block py-2 text-gray-700 hover:text-pink-600">Get Routine</a>
+                <a href="pages/scalp-analysis.html" class="block py-2 text-gray-700 hover:text-pink-600">Scalp Analysis</a>
+                <a href="pages/oils.html" class="block py-2 text-gray-700 hover:text-pink-600">Oils</a>
+                <a href="pages/ingredients.html" class="block py-2 text-gray-700 hover:text-pink-600">Ingredients</a>
+                <a href="pages/mistakes.html" class="block py-2 text-gray-700 hover:text-pink-600">Mistakes</a>
+                <a href="pages/concerns.html" class="block py-2 text-gray-700 hover:text-pink-600">Concerns</a>
+                <a href="pages/about.html" class="block py-2 text-gray-700 hover:text-pink-600">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 px-4 overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="absolute top-10 left-10 floating">
+            <img src="assets/icons/hair-strand.svg" alt="" class="w-16 h-16 opacity-30" onerror="this.style.display='none'">
+        </div>
+        <div class="absolute top-20 right-20 floating-delayed">
+            <img src="assets/icons/shampoo.svg" alt="" class="w-20 h-20 opacity-30" onerror="this.style.display='none'">
+        </div>
+        <div class="absolute bottom-20 left-1/4 floating-slow">
+            <img src="assets/icons/oil-droplet.svg" alt="" class="w-14 h-14 opacity-30" onerror="this.style.display='none'">
+        </div>
+        <div class="absolute bottom-10 right-1/4 floating">
+            <img src="assets/icons/brush.svg" alt="" class="w-18 h-18 opacity-30" onerror="this.style.display='none'">
+        </div>
+
+        <div class="container mx-auto max-w-4xl text-center relative z-10">
+            <!-- Hero Image -->
+            <div class="mb-8 flex justify-center">
+                <div class="relative">
+                    <div id="hero-image-container" class="w-full max-w-md">
+                        <img id="hero-image" src="assets/hero-image.jpg" alt="KnowYourHair" class="w-full max-w-md h-auto rounded-3xl shadow-2xl object-cover" onerror="handleHeroImageError()">
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-heading font-bold text-pink-600 mb-4">
+                KnowYourHair
+            </h1>
+            <p class="text-2xl md:text-3xl font-heading font-semibold text-blue-500 mb-6 tracking-wide">
+                LEARN.CARE.GLOW
+            </p>
+            <p class="text-lg md:text-xl text-gray-700 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Discover your hair's unique needs and embrace natural care for healthy, beautiful hair.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col md:flex-row flex-wrap gap-4 justify-center items-center mb-12">
+                <a href="pages/take-test.html" class="btn-primary w-full md:w-auto">
+                    Take test
+                </a>
+                <a href="pages/get-routine.html" class="btn-secondary w-full md:w-auto">
+                    Get Your Routine
+                </a>
+                <a href="pages/scalp-analysis.html" class="btn-tertiary w-full md:w-auto">
+                    Scalp analysis
+                </a>
+                <button id="auth-open-btn" class="w-full md:w-auto px-6 py-3 rounded-full border border-pink-500 text-pink-600 font-medium hover:bg-pink-50 transition">
+                    Login / Sign up
+                </button>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-6 max-w-3xl mx-auto shadow-lg border border-pink-200">
+                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                    <strong class="text-pink-600">Disclaimer:</strong> We are not dermatologists. For serious scalp or hair issues, consult a dermatologist first. This site provides general information only.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="py-16 px-4 bg-white/50">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-heading font-bold text-center text-gray-800 mb-12">Explore More</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="pages/oils.html" class="feature-card">
+                    <div class="text-4xl mb-4">💧</div>
+                    <h3 class="text-xl font-heading font-semibold mb-2">Oils Guide</h3>
+                    <p class="text-gray-600">Find the perfect oils for your hair porosity</p>
+                </a>
+                <a href="pages/ingredients.html" class="feature-card">
+                    <div class="text-4xl mb-4">🧴</div>
+                    <h3 class="text-xl font-heading font-semibold mb-2">Ingredients</h3>
+                    <p class="text-gray-600">Learn what ingredients work for your hair</p>
+                </a>
+                <a href="pages/mistakes.html" class="feature-card">
+                    <div class="text-4xl mb-4">⚠️</div>
+                    <h3 class="text-xl font-heading font-semibold mb-2">Common Mistakes</h3>
+                    <p class="text-gray-600">Avoid these hair care pitfalls</p>
+                </a>
+                <a href="pages/concerns.html" class="feature-card">
+                    <div class="text-4xl mb-4">💆</div>
+                    <h3 class="text-xl font-heading font-semibold mb-2">Hair Concerns</h3>
+                    <p class="text-gray-600">Solutions for your specific concerns</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-pink-100 to-blue-100 py-8 px-4 mt-16">
+        <div class="container mx-auto max-w-6xl text-center">
+            <p class="text-gray-700 mb-4">&copy; 2024 KnowYourHair. All rights reserved.</p>
+            <p class="text-sm text-gray-600">Learn.Care.Glow</p>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="fixed inset-0 bg-black/40 flex items-center justify-center px-4 z-50 hidden">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full p-6 md:p-8 relative">
+            <button id="auth-close-btn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                ✕
+            </button>
+            <div class="mb-6 text-center">
+                <h2 id="auth-title" class="text-2xl font-heading font-bold text-pink-600 mb-2">Create your account</h2>
+                <p id="auth-subtitle" class="text-sm text-gray-600">Sign up to save your routines and access them anytime.</p>
+            </div>
+            <form id="auth-form" class="space-y-4">
+                <div>
+                    <label for="auth-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input id="auth-email" type="email" required class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400" placeholder="you@example.com">
+                </div>
+                <div>
+                    <label for="auth-password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <input id="auth-password" type="password" minlength="6" required class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400" placeholder="At least 6 characters">
+                </div>
+                <button id="auth-submit-btn" type="submit" class="w-full px-4 py-2.5 rounded-full bg-pink-500 text-white font-semibold hover:bg-pink-600 transition">
+                    Create account
+                </button>
+                <p id="auth-toggle" class="text-xs text-center text-gray-600">
+                    Already have an account?
+                    <button type="button" class="text-pink-600 font-medium hover:underline" id="auth-toggle-btn">Log in</button>
+                </p>
+                <p id="auth-message" class="text-xs text-center text-gray-600"></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oils Guide - KnowYourHair</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body class="font-body bg-gradient-to-br from-pink-50 to-blue-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="text-2xl font-heading font-bold text-pink-600">KnowYourHair</a>
+                <div class="hidden md:flex gap-6">
+                    <a href="../index.html" class="text-gray-700 hover:text-pink-600 transition">Home</a>
+                    <a href="take-test.html" class="text-gray-700 hover:text-pink-600 transition">Take Test</a>
+                    <a href="get-routine.html" class="text-gray-700 hover:text-pink-600 transition">Get Routine</a>
+                    <a href="scalp-analysis.html" class="text-gray-700 hover:text-pink-600 transition">Scalp Analysis</a>
+                    <a href="oils.html" class="text-pink-600 font-semibold">Oils</a>
+                    <a href="ingredients.html" class="text-gray-700 hover:text-pink-600 transition">Ingredients</a>
+                    <a href="mistakes.html" class="text-gray-700 hover:text-pink-600 transition">Mistakes</a>
+                    <a href="concerns.html" class="text-gray-700 hover:text-pink-600 transition">Concerns</a>
+                    <a href="about.html" class="text-gray-700 hover:text-pink-600 transition">About</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="../index.html" class="block py-2 text-gray-700 hover:text-pink-600">Home</a>
+                <a href="take-test.html" class="block py-2 text-gray-700 hover:text-pink-600">Take Test</a>
+                <a href="get-routine.html" class="block py-2 text-gray-700 hover:text-pink-600">Get Routine</a>
+                <a href="scalp-analysis.html" class="block py-2 text-gray-700 hover:text-pink-600">Scalp Analysis</a>
+                <a href="oils.html" class="block py-2 text-pink-600 font-semibold">Oils</a>
+                <a href="ingredients.html" class="block py-2 text-gray-700 hover:text-pink-600">Ingredients</a>
+                <a href="mistakes.html" class="block py-2 text-gray-700 hover:text-pink-600">Mistakes</a>
+                <a href="concerns.html" class="block py-2 text-gray-700 hover:text-pink-600">Concerns</a>
+                <a href="about.html" class="block py-2 text-gray-700 hover:text-pink-600">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h1 class="text-4xl md:text-5xl font-heading font-bold text-center text-pink-600 mb-4">Hair Oils Guide</h1>
+            <p class="text-center text-gray-700 mb-12 text-lg">Find the perfect oils for your hair porosity type</p>
+
+            <!-- Low Porosity -->
+            <div class="oil-card mb-8">
+                <div class="flex items-center mb-4">
+                    <div class="text-4xl mr-4">🌊</div>
+                    <h2 class="text-3xl font-heading font-bold text-blue-600">Low Porosity</h2>
+                </div>
+                <p class="text-gray-700 mb-4">Your hair needs lightweight oils that won't cause buildup.</p>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-heading font-semibold text-gray-800 mb-3">Recommended Oils:</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-gradient-to-br from-blue-50 to-pink-50 rounded-lg p-4">
+                            <div class="text-2xl mb-2">💧</div>
+                            <h4 class="font-semibold text-gray-800">Jojoba Oil</h4>
+                            <p class="text-sm text-gray-600">Lightweight, mimics natural sebum</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-50 to-pink-50 rounded-lg p-4">
+                            <div class="text-2xl mb-2">🍇</div>
+                            <h4 class="font-semibold text-gray-800">Grapeseed Oil</h4>
+                            <p class="text-sm text-gray-600">Very light, non-greasy</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-50 to-pink-50 rounded-lg p-4">
+                            <div class="text-2xl mb-2">🌿</div>
+                            <h4 class="font-semibold text-gray-800">Argan Oil</h4>
+                            <p class="text-sm text-gray-600">Lightweight, rich in nutrients</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-yellow-50 rounded-lg p-4 border-l-4 border-yellow-400">
+                        <p class="text-sm text-gray-700"><strong>⚠️ Avoid:</strong> Heavy oils like castor, olive, or shea butter - they can cause buildup on low porosity hair.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medium Porosity -->
+            <div class="oil-card mb-8">
+                <div class="flex items-center mb-4">
+                    <div class="text-4xl mr-4">⚖️</div>
+                    <h2 class="text-3xl font-heading font-bold text-purple-600">Medium Porosity</h2>
+                </div>
+                <p class="text-gray-700 mb-4">Your hair can handle a balanced variety of oils.</p>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-heading font-semibold text-gray-800 mb-3">Recommended Oils:</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-4">
+                            <div class="text-2xl mb-2">🥥</div>
+                            <h4 class="font-semibold text-gray-800">Coconut Oil (Light)</h4>
+                            <p class="text-sm text-gray-600">Balanced, good for most hair types</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-4">
+                            <div class="text-2xl mb-2">🌰</div>
+                            <h4 class="font-semibold text-gray-800">Almond Oil</h4>
+                            <p class="text-sm text-gray-600">Nourishing, medium weight</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-4">
+                            <div class="text-2xl mb-2">🌻</div>
+                            <h4 class="font-semibold text-gray-800">Sunflower Oil</h4>
+                            <p class="text-sm text-gray-600">Lightweight, versatile</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-green-50 rounded-lg p-4">
+                        <p class="text-sm text-gray-700"><strong>💡 Tip:</strong> You can experiment with different oils to find what works best for your hair.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- High Porosity -->
+            <div class="oil-card mb-8">
+                <div class="flex items-center mb-4">
+                    <div class="text-4xl mr-4">💧</div>
+                    <h2 class="text-3xl font-heading font-bold text-red-600">High Porosity</h2>
+                </div>
+                <p class="text-gray-700 mb-4">Your hair needs heavier sealing oils to lock in moisture.</p>
+                <div class="bg-white rounded-xl p-6">
+                    <h3 class="font-heading font-semibold text-gray-800 mb-3">Recommended Oils:</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-lg p-4">
+                            <div class="text-2xl mb-2">🌿</div>
+                            <h4 class="font-semibold text-gray-800">Castor Oil</h4>
+                            <p class="text-sm text-gray-600">Heavy, excellent for sealing</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-lg p-4">
+                            <div class="text-2xl mb-2">🫒</div>
+                            <h4 class="font-semibold text-gray-800">Olive Oil</h4>
+                            <p class="text-sm text-gray-600">Rich, deeply moisturizing</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-lg p-4">
+                            <div class="text-2xl mb-2">🌰</div>
+                            <h4 class="font-semibold text-gray-800">Shea-Based Oils</h4>
+                            <p class="text-sm text-gray-600">Heavy butter, great for sealing</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-blue-50 rounded-lg p-4">
+                        <p class="text-sm text-gray-700"><strong>💡 Tip:</strong> Mix heavier oils with lighter ones for better application. Always seal in moisture after conditioning.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Usage Tips -->
+            <div class="card bg-gradient-to-br from-pink-100 to-blue-100">
+                <h2 class="text-2xl font-heading font-bold text-gray-800 mb-4">General Oil Usage Tips</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="font-heading font-semibold text-gray-800 mb-2">When to Apply:</h3>
+                        <ul class="text-gray-700 space-y-1 text-sm">
+                            <li>• On damp hair for better absorption</li>
+                            <li>• Before washing (pre-poo treatment)</li>
+                            <li>• After conditioning (seal in moisture)</li>
+                            <li>• As a weekly deep treatment</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-semibold text-gray-800 mb-2">How to Apply:</h3>
+                        <ul class="text-gray-700 space-y-1 text-sm">
+                            <li>• Start with small amounts</li>
+                            <li>• Focus on ends and mid-lengths</li>
+                            <li>• Avoid scalp (unless treating dryness)</li>
+                            <li>• Use heat for better penetration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-pink-100 to-blue-100 py-8 px-4 mt-16">
+        <div class="container mx-auto max-w-6xl text-center">
+            <p class="text-gray-700 mb-4">&copy; 2024 KnowYourHair. All rights reserved.</p>
+            <p class="text-sm text-gray-600">Learn.Care.Glow</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>
+
+

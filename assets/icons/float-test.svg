@@ -1,0 +1,9 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="50" y="50" width="300" height="200" rx="10" fill="#CFEFFF" stroke="#FFDDE6" stroke-width="3"/>
+  <path d="M100 150 Q150 140 200 150 T300 150" stroke="#FFDDE6" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="200" cy="150" r="8" fill="#FFDDE6"/>
+  <text x="200" y="100" text-anchor="middle" fill="#666" font-family="Inter, sans-serif" font-size="16">Water</text>
+  <text x="200" y="250" text-anchor="middle" fill="#666" font-family="Inter, sans-serif" font-size="14">Hair Strand</text>
+</svg>
+
+

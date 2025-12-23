@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Test - KnowYourHair</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body class="font-body bg-gradient-to-br from-pink-50 to-blue-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="text-2xl font-heading font-bold text-pink-600">KnowYourHair</a>
+                <div class="hidden md:flex gap-6">
+                    <a href="../index.html" class="text-gray-700 hover:text-pink-600 transition">Home</a>
+                    <a href="take-test.html" class="text-pink-600 font-semibold">Take Test</a>
+                    <a href="get-routine.html" class="text-gray-700 hover:text-pink-600 transition">Get Routine</a>
+                    <a href="scalp-analysis.html" class="text-gray-700 hover:text-pink-600 transition">Scalp Analysis</a>
+                    <a href="oils.html" class="text-gray-700 hover:text-pink-600 transition">Oils</a>
+                    <a href="ingredients.html" class="text-gray-700 hover:text-pink-600 transition">Ingredients</a>
+                    <a href="mistakes.html" class="text-gray-700 hover:text-pink-600 transition">Mistakes</a>
+                    <a href="concerns.html" class="text-gray-700 hover:text-pink-600 transition">Concerns</a>
+                    <a href="about.html" class="text-gray-700 hover:text-pink-600 transition">About</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="../index.html" class="block py-2 text-gray-700 hover:text-pink-600">Home</a>
+                <a href="take-test.html" class="block py-2 text-pink-600 font-semibold">Take Test</a>
+                <a href="get-routine.html" class="block py-2 text-gray-700 hover:text-pink-600">Get Routine</a>
+                <a href="scalp-analysis.html" class="block py-2 text-gray-700 hover:text-pink-600">Scalp Analysis</a>
+                <a href="oils.html" class="block py-2 text-gray-700 hover:text-pink-600">Oils</a>
+                <a href="ingredients.html" class="block py-2 text-gray-700 hover:text-pink-600">Ingredients</a>
+                <a href="mistakes.html" class="block py-2 text-gray-700 hover:text-pink-600">Mistakes</a>
+                <a href="concerns.html" class="block py-2 text-gray-700 hover:text-pink-600">Concerns</a>
+                <a href="about.html" class="block py-2 text-gray-700 hover:text-pink-600">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <h1 class="text-4xl md:text-5xl font-heading font-bold text-center text-pink-600 mb-4">Hair Porosity Test</h1>
+            <p class="text-center text-gray-700 mb-12 text-lg">Discover your hair's porosity level with these simple tests</p>
+
+            <!-- Test Selection -->
+            <div id="test-selection" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <div class="test-card" data-test="float">
+                    <div class="text-5xl mb-4 text-center">💧</div>
+                    <h3 class="text-2xl font-heading font-semibold mb-3 text-center">Float Test</h3>
+                    <p class="text-gray-600 text-center">Test how your hair behaves in water</p>
+                </div>
+                <div class="test-card" data-test="spray">
+                    <div class="text-5xl mb-4 text-center">💨</div>
+                    <h3 class="text-2xl font-heading font-semibold mb-3 text-center">Spray Test</h3>
+                    <p class="text-gray-600 text-center">Check how your hair absorbs water</p>
+                </div>
+            </div>
+
+            <!-- Float Test -->
+            <div id="float-test" class="hidden">
+                <div class="card mb-8">
+                    <h2 class="text-3xl font-heading font-bold text-blue-600 mb-6">Float Test Instructions</h2>
+                    <div class="mb-6">
+                        <img src="../assets/icons/float-test.svg" alt="Float Test" class="w-full max-w-md mx-auto rounded-xl mb-4" onerror="this.style.display='none'">
+                    </div>
+                    <ol class="list-decimal list-inside space-y-3 text-gray-700 mb-6">
+                        <li>Take a clean strand of hair (from your brush or comb)</li>
+                        <li>Fill a glass with room temperature water</li>
+                        <li>Place the hair strand gently on the water surface</li>
+                        <li>Observe what happens for 2-4 minutes</li>
+                    </ol>
+                    <div class="bg-blue-50 rounded-xl p-4 mb-6">
+                        <h3 class="font-heading font-semibold text-blue-700 mb-3">What to Look For:</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li>• <strong>Sinks quickly:</strong> High Porosity</li>
+                            <li>• <strong>Slowly drifts down:</strong> Medium Porosity</li>
+                            <li>• <strong>Floats for a long time:</strong> Low Porosity</li>
+                        </ul>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <button class="test-result-btn bg-gradient-to-r from-red-400 to-red-500 text-white px-6 py-4 rounded-xl font-heading font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all" data-result="high">
+                            Sinks Fast (High)
+                        </button>
+                        <button class="test-result-btn bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-6 py-4 rounded-xl font-heading font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all" data-result="medium">
+                            Slowly Drifts (Medium)
+                        </button>
+                        <button class="test-result-btn bg-gradient-to-r from-green-400 to-green-500 text-white px-6 py-4 rounded-xl font-heading font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all" data-result="low">
+                            Floats Long (Low)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spray Test -->
+            <div id="spray-test" class="hidden">
+                <div class="card mb-8">
+                    <h2 class="text-3xl font-heading font-bold text-blue-600 mb-6">Spray Test Instructions</h2>
+                    <div class="mb-6">
+                        <img src="../assets/icons/spray-test.svg" alt="Spray Test" class="w-full max-w-md mx-auto rounded-xl mb-4" onerror="this.style.display='none'">
+                    </div>
+                    <ol class="list-decimal list-inside space-y-3 text-gray-700 mb-6">
+                        <li>Take a small section of clean, dry hair</li>
+                        <li>Spray a fine mist of water on the hair</li>
+                        <li>Observe how quickly the water is absorbed</li>
+                        <li>Watch the hair's reaction to the water</li>
+                    </ol>
+                    <div class="bg-blue-50 rounded-xl p-4 mb-6">
+                        <h3 class="font-heading font-semibold text-blue-700 mb-3">What to Look For:</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li>• <strong>Absorbs immediately, looks wet:</strong> High Porosity</li>
+                            <li>• <strong>Absorbs gradually:</strong> Medium Porosity</li>
+                            <li>• <strong>Water beads up, takes time:</strong> Low Porosity</li>
+                        </ul>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <button class="test-result-btn bg-gradient-to-r from-red-400 to-red-500 text-white px-6 py-4 rounded-xl font-heading font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all" data-result="high">
+                            Absorbs Fast (High)
+                        </button>
+                        <button class="test-result-btn bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-6 py-4 rounded-xl font-heading font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all" data-result="medium">
+                            Gradual (Medium)
+                        </button>
+                        <button class="test-result-btn bg-gradient-to-r from-green-400 to-green-500 text-white px-6 py-4 rounded-xl font-heading font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all" data-result="low">
+                            Beads Up (Low)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Display -->
+            <div id="test-results" class="hidden">
+                <div class="result-card">
+                    <div class="text-center mb-6">
+                        <div id="porosity-icon" class="text-6xl mb-4"></div>
+                        <h2 class="text-3xl font-heading font-bold text-pink-600 mb-2" id="porosity-type"></h2>
+                        <p class="text-lg text-gray-700" id="porosity-explanation"></p>
+                    </div>
+                    <div class="bg-white rounded-xl p-6">
+                        <h3 class="text-xl font-heading font-semibold text-blue-600 mb-4">Basic Care Tips:</h3>
+                        <ul class="space-y-2 text-gray-700" id="care-tips"></ul>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <button onclick="resetTest()" class="btn-primary">Take Another Test</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-pink-100 to-blue-100 py-8 px-4 mt-16">
+        <div class="container mx-auto max-w-6xl text-center">
+            <p class="text-gray-700 mb-4">&copy; 2024 KnowYourHair. All rights reserved.</p>
+            <p class="text-sm text-gray-600">Learn.Care.Glow</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/take-test.js"></script>
+</body>
+</html>
+
+

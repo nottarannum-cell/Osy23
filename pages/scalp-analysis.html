@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scalp Analysis - KnowYourHair</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body class="font-body bg-gradient-to-br from-pink-50 to-blue-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="text-2xl font-heading font-bold text-pink-600">KnowYourHair</a>
+                <div class="hidden md:flex gap-6">
+                    <a href="../index.html" class="text-gray-700 hover:text-pink-600 transition">Home</a>
+                    <a href="take-test.html" class="text-gray-700 hover:text-pink-600 transition">Take Test</a>
+                    <a href="get-routine.html" class="text-gray-700 hover:text-pink-600 transition">Get Routine</a>
+                    <a href="scalp-analysis.html" class="text-pink-600 font-semibold">Scalp Analysis</a>
+                    <a href="oils.html" class="text-gray-700 hover:text-pink-600 transition">Oils</a>
+                    <a href="ingredients.html" class="text-gray-700 hover:text-pink-600 transition">Ingredients</a>
+                    <a href="mistakes.html" class="text-gray-700 hover:text-pink-600 transition">Mistakes</a>
+                    <a href="concerns.html" class="text-gray-700 hover:text-pink-600 transition">Concerns</a>
+                    <a href="about.html" class="text-gray-700 hover:text-pink-600 transition">About</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="../index.html" class="block py-2 text-gray-700 hover:text-pink-600">Home</a>
+                <a href="take-test.html" class="block py-2 text-gray-700 hover:text-pink-600">Take Test</a>
+                <a href="get-routine.html" class="block py-2 text-gray-700 hover:text-pink-600">Get Routine</a>
+                <a href="scalp-analysis.html" class="block py-2 text-pink-600 font-semibold">Scalp Analysis</a>
+                <a href="oils.html" class="block py-2 text-gray-700 hover:text-pink-600">Oils</a>
+                <a href="ingredients.html" class="block py-2 text-gray-700 hover:text-pink-600">Ingredients</a>
+                <a href="mistakes.html" class="block py-2 text-gray-700 hover:text-pink-600">Mistakes</a>
+                <a href="concerns.html" class="block py-2 text-gray-700 hover:text-pink-600">Concerns</a>
+                <a href="about.html" class="block py-2 text-gray-700 hover:text-pink-600">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <h1 class="text-4xl md:text-5xl font-heading font-bold text-center text-pink-600 mb-4">Scalp Analysis</h1>
+            <p class="text-center text-gray-700 mb-12 text-lg">Determine your scalp type with these simple tests</p>
+
+            <!-- Test Methods -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="card text-center">
+                    <div class="text-5xl mb-4">👁️</div>
+                    <h3 class="text-xl font-heading font-semibold mb-3">Visual Cues</h3>
+                    <p class="text-gray-600 text-sm">Observe your scalp's appearance</p>
+                </div>
+                <div class="card text-center">
+                    <div class="text-5xl mb-4">✋</div>
+                    <h3 class="text-xl font-heading font-semibold mb-3">Touch Test</h3>
+                    <p class="text-gray-600 text-sm">Feel your scalp's texture</p>
+                </div>
+                <div class="card text-center">
+                    <div class="text-5xl mb-4">🔬</div>
+                    <h3 class="text-xl font-heading font-semibold mb-3">Sebum Test</h3>
+                    <p class="text-gray-600 text-sm">Check oil production</p>
+                </div>
+            </div>
+
+            <!-- Scalp Type Information -->
+            <div class="space-y-8 mb-12">
+                <!-- Normal Scalp -->
+                <div class="card">
+                    <h2 class="text-2xl font-heading font-bold text-green-600 mb-4">Normal Scalp</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="font-heading font-semibold text-gray-800 mb-2">Visual Cues:</h3>
+                            <ul class="text-gray-700 space-y-1 text-sm">
+                                <li>• Balanced appearance</li>
+                                <li>• No excessive oiliness or dryness</li>
+                                <li>• Healthy pink color</li>
+                                <li>• Minimal flaking</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-semibold text-gray-800 mb-2">Touch Test:</h3>
+                            <ul class="text-gray-700 space-y-1 text-sm">
+                                <li>• Feels smooth and balanced</li>
+                                <li>• Not too oily or too dry</li>
+                                <li>• Comfortable to touch</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-green-50 rounded-xl p-4">
+                        <h3 class="font-heading font-semibold text-green-700 mb-2">Care Tips:</h3>
+                        <ul class="text-gray-700 space-y-1 text-sm">
+                            <li>• Wash 2-3 times per week</li>
+                            <li>• Use balanced, gentle shampoos</li>
+                            <li>• Maintain regular routine</li>
+                            <li>• Look for: Balanced formulas, mild surfactants</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Dry Scalp -->
+                <div class="card">
+                    <h2 class="text-2xl font-heading font-bold text-orange-600 mb-4">Dry Scalp</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="font-heading font-semibold text-gray-800 mb-2">Visual Cues:</h3>
+                            <ul class="text-gray-700 space-y-1 text-sm">
+                                <li>• Visible flaking or dandruff</li>
+                                <li>• Tight, dry appearance</li>
+                                <li>• May appear red or irritated</li>
+                                <li>• Small white flakes</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-semibold text-gray-800 mb-2">Touch Test:</h3>
+                            <ul class="text-gray-700 space-y-1 text-sm">
+                                <li>• Feels tight or itchy</li>
+                                <li>• No oiliness when touched</li>
+                                <li>• May feel rough</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-orange-50 rounded-xl p-4">
+                        <h3 class="font-heading font-semibold text-orange-700 mb-2">Care Tips:</h3>
+                        <ul class="text-gray-700 space-y-1 text-sm">
+                            <li>• Wash less frequently (1-2×/week)</li>
+                            <li>• Use moisturizing, gentle shampoos</li>
+                            <li>• Pre-oil before washing</li>
+                            <li>• Look for: Aloe, hyaluronic acid, fatty alcohols</li>
+                            <li>• Avoid harsh sulfates</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Oily Scalp -->
+                <div class="card">
+                    <h2 class="text-2xl font-heading font-bold text-blue-600 mb-4">Oily Scalp</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="font-heading font-semibold text-gray-800 mb-2">Visual Cues:</h3>
+                            <ul class="text-gray-700 space-y-1 text-sm">
+                                <li>• Shiny, greasy appearance</li>
+                                <li>• Hair looks oily quickly after washing</li>
+                                <li>• May have larger, yellowish flakes</li>
+                                <li>• Scalp appears slick</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-semibold text-gray-800 mb-2">Touch Test:</h3>
+                            <ul class="text-gray-700 space-y-1 text-sm">
+                                <li>• Feels greasy or oily</li>
+                                <li>• Oil visible on fingers</li>
+                                <li>• Slippery to touch</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-blue-50 rounded-xl p-4">
+                        <h3 class="font-heading font-semibold text-blue-700 mb-2">Care Tips:</h3>
+                        <ul class="text-gray-700 space-y-1 text-sm">
+                            <li>• Wash 3-4 times per week</li>
+                            <li>• Use clarifying but non-stripping shampoos</li>
+                            <li>• Focus on scalp cleansing</li>
+                            <li>• Look for: Niacinamide, green tea, gentle clarifying agents</li>
+                            <li>• Avoid heavy oils on scalp</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sebum Test Instructions -->
+            <div class="card bg-gradient-to-br from-pink-50 to-blue-50">
+                <h2 class="text-2xl font-heading font-bold text-purple-600 mb-4">Sebum Test</h2>
+                <ol class="list-decimal list-inside space-y-3 text-gray-700 mb-4">
+                    <li>Wash your hair and wait 24 hours</li>
+                    <li>Take a tissue or blotting paper</li>
+                    <li>Gently press it against your scalp (especially crown area)</li>
+                    <li>Observe the results</li>
+                </ol>
+                <div class="bg-white rounded-xl p-4">
+                    <h3 class="font-heading font-semibold text-gray-800 mb-2">Results:</h3>
+                    <ul class="space-y-2 text-gray-700 text-sm">
+                        <li>• <strong>No oil:</strong> Dry Scalp</li>
+                        <li>• <strong>Light oil:</strong> Normal Scalp</li>
+                        <li>• <strong>Visible oil:</strong> Oily Scalp</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Result Selector -->
+            <div class="mt-12 text-center">
+                <h2 class="text-2xl font-heading font-bold text-gray-800 mb-6">What's Your Scalp Type?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <button class="scalp-result-btn bg-gradient-to-r from-green-400 to-green-500 text-white px-6 py-4 rounded-xl font-heading font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all" data-type="Normal">
+                        Normal
+                    </button>
+                    <button class="scalp-result-btn bg-gradient-to-r from-orange-400 to-orange-500 text-white px-6 py-4 rounded-xl font-heading font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all" data-type="Dry">
+                        Dry
+                    </button>
+                    <button class="scalp-result-btn bg-gradient-to-r from-blue-400 to-blue-500 text-white px-6 py-4 rounded-xl font-heading font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all" data-type="Oily">
+                        Oily
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Display -->
+            <div id="scalp-results" class="hidden mt-8"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-pink-100 to-blue-100 py-8 px-4 mt-16">
+        <div class="container mx-auto max-w-6xl text-center">
+            <p class="text-gray-700 mb-4">&copy; 2024 KnowYourHair. All rights reserved.</p>
+            <p class="text-sm text-gray-600">Learn.Care.Glow</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/scalp-analysis.js"></script>
+</body>
+</html>
+
+

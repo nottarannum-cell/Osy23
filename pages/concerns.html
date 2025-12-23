@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Concerns - KnowYourHair</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body class="font-body bg-gradient-to-br from-pink-50 to-blue-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="text-2xl font-heading font-bold text-pink-600">KnowYourHair</a>
+                <div class="hidden md:flex gap-6">
+                    <a href="../index.html" class="text-gray-700 hover:text-pink-600 transition">Home</a>
+                    <a href="take-test.html" class="text-gray-700 hover:text-pink-600 transition">Take Test</a>
+                    <a href="get-routine.html" class="text-gray-700 hover:text-pink-600 transition">Get Routine</a>
+                    <a href="scalp-analysis.html" class="text-gray-700 hover:text-pink-600 transition">Scalp Analysis</a>
+                    <a href="oils.html" class="text-gray-700 hover:text-pink-600 transition">Oils</a>
+                    <a href="ingredients.html" class="text-gray-700 hover:text-pink-600 transition">Ingredients</a>
+                    <a href="mistakes.html" class="text-gray-700 hover:text-pink-600 transition">Mistakes</a>
+                    <a href="concerns.html" class="text-pink-600 font-semibold">Concerns</a>
+                    <a href="about.html" class="text-gray-700 hover:text-pink-600 transition">About</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="../index.html" class="block py-2 text-gray-700 hover:text-pink-600">Home</a>
+                <a href="take-test.html" class="block py-2 text-gray-700 hover:text-pink-600">Take Test</a>
+                <a href="get-routine.html" class="block py-2 text-gray-700 hover:text-pink-600">Get Routine</a>
+                <a href="scalp-analysis.html" class="block py-2 text-gray-700 hover:text-pink-600">Scalp Analysis</a>
+                <a href="oils.html" class="block py-2 text-gray-700 hover:text-pink-600">Oils</a>
+                <a href="ingredients.html" class="block py-2 text-gray-700 hover:text-pink-600">Ingredients</a>
+                <a href="mistakes.html" class="block py-2 text-gray-700 hover:text-pink-600">Mistakes</a>
+                <a href="concerns.html" class="block py-2 text-pink-600 font-semibold">Concerns</a>
+                <a href="about.html" class="block py-2 text-gray-700 hover:text-pink-600">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h1 class="text-4xl md:text-5xl font-heading font-bold text-center text-pink-600 mb-4">Hair Concerns</h1>
+            <p class="text-center text-gray-700 mb-12 text-lg">Find solutions for your specific hair concerns</p>
+
+            <!-- Concerns Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Hair Fall -->
+                <div class="concern-card" data-concern="hair-fall">
+                    <div class="text-4xl mb-4 text-center">🍂</div>
+                    <h3 class="text-xl font-heading font-semibold text-center mb-2">Hair Fall / Shedding</h3>
+                    <p class="text-gray-600 text-center text-sm">Excessive hair loss or shedding</p>
+                </div>
+
+                <!-- Frizz -->
+                <div class="concern-card" data-concern="frizz">
+                    <div class="text-4xl mb-4 text-center">⚡</div>
+                    <h3 class="text-xl font-heading font-semibold text-center mb-2">Frizz</h3>
+                    <p class="text-gray-600 text-center text-sm">Unruly, flyaway hair</p>
+                </div>
+
+                <!-- Dryness -->
+                <div class="concern-card" data-concern="dryness">
+                    <div class="text-4xl mb-4 text-center">🌵</div>
+                    <h3 class="text-xl font-heading font-semibold text-center mb-2">Dryness</h3>
+                    <p class="text-gray-600 text-center text-sm">Lack of moisture in hair</p>
+                </div>
+
+                <!-- Breakage -->
+                <div class="concern-card" data-concern="breakage">
+                    <div class="text-4xl mb-4 text-center">✂️</div>
+                    <h3 class="text-xl font-heading font-semibold text-center mb-2">Breakage / Split Ends</h3>
+                    <p class="text-gray-600 text-center text-sm">Hair breaking or splitting</p>
+                </div>
+
+                <!-- Dandruff -->
+                <div class="concern-card" data-concern="dandruff">
+                    <div class="text-4xl mb-4 text-center">❄️</div>
+                    <h3 class="text-xl font-heading font-semibold text-center mb-2">Dandruff / Flakiness</h3>
+                    <p class="text-gray-600 text-center text-sm">Scalp flaking and irritation</p>
+                </div>
+
+                <!-- Oily Scalp -->
+                <div class="concern-card" data-concern="oily-scalp">
+                    <div class="text-4xl mb-4 text-center">💧</div>
+                    <h3 class="text-xl font-heading font-semibold text-center mb-2">Oily Scalp</h3>
+                    <p class="text-gray-600 text-center text-sm">Excessive scalp oil production</p>
+                </div>
+
+                <!-- Product Buildup -->
+                <div class="concern-card" data-concern="buildup">
+                    <div class="text-4xl mb-4 text-center">🧴</div>
+                    <h3 class="text-xl font-heading font-semibold text-center mb-2">Product Buildup</h3>
+                    <p class="text-gray-600 text-center text-sm">Accumulation of products on hair</p>
+                </div>
+            </div>
+
+            <!-- Concern Details (Hidden by default, shown on click) -->
+            <div id="concern-details" class="hidden mt-12"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-pink-100 to-blue-100 py-8 px-4 mt-16">
+        <div class="container mx-auto max-w-6xl text-center">
+            <p class="text-gray-700 mb-4">&copy; 2024 KnowYourHair. All rights reserved.</p>
+            <p class="text-sm text-gray-600">Learn.Care.Glow</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/concerns.js"></script>
+</body>
+</html>
+
+
