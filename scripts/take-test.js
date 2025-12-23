@@ -54,7 +54,11 @@ document.addEventListener('DOMContentLoaded', function() {
     resultButtons.forEach(btn => {
         btn.addEventListener('click', function() {
             const result = this.dataset.result;
+            const testType = this.closest('#float-test') ? 'float' : 'spray';
             showResults(result);
+            savePorosityTestForCurrentUser(testType, result).catch((err) => {
+                console.error('Failed to save porosity test to Supabase:', err);
+            });
         });
     });
 });
@@ -88,5 +92,37 @@ function resetTest() {
     document.getElementById('test-results').classList.add('hidden');
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+ 
+async function savePorosityTestForCurrentUser(testType, porosityKey) {
+    if (!supabaseClient) {
+        console.warn('Supabase client not available on this page; porosity test will not be saved.');
+        return;
+    }
 
+    const { data: userData, error: userError } = await supabaseClient.auth.getUser();
+    if (userError || !userData || !userData.user) {
+        console.info('User is not logged in; porosity test not saved to Supabase.');
+        return;
+    }
+
+    const user = userData.user;
+    const data = porosityData[porosityKey];
+
+    const payload = {
+        user_id: user.id,
+        test_type: testType,          // 'float' or 'spray'
+        porosity_key: porosityKey,    // 'low' | 'medium' | 'high'
+        porosity_type: data.type,
+        explanation: data.explanation,
+        tips: data.tips
+    };
+
+    const { error } = await supabaseClient.from('porosity_tests').insert(payload);
+    if (error) {
+        console.error('Supabase insert error (porosity_tests):', error);
+        throw error;
+    } else {
+        console.log('Porosity test saved to Supabase:', payload);
+    }
+}
 
