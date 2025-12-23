@@ -45,6 +45,7 @@ const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_
 
 function renderAuthState(user) {
     const container = document.getElementById('nav-auth-status');
+    const heroAuthButton = document.getElementById('auth-open-btn');
     if (!container) return;
 
     if (user && user.email) {
@@ -58,6 +59,11 @@ function renderAuthState(user) {
         `;
         container.classList.remove('hidden');
 
+        // Hide hero Login / Sign up button when logged in
+        if (heroAuthButton) {
+            heroAuthButton.classList.add('hidden');
+        }
+
         const logoutBtn = document.getElementById('logout-btn');
         if (logoutBtn) {
             logoutBtn.addEventListener('click', async () => {
@@ -68,6 +74,11 @@ function renderAuthState(user) {
     } else {
         container.innerHTML = '';
         container.classList.add('hidden');
+
+        // Show hero Login / Sign up button again when logged out
+        if (heroAuthButton) {
+            heroAuthButton.classList.remove('hidden');
+        }
     }
 }
 
