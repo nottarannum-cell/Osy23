@@ -154,7 +154,6 @@ async function saveRoutineForCurrentUser(routineData) {
 
     const payload = {
         user_id: user.id,
-        title: `Routine for ${routineData.name} (${routineData.scalpType} / ${routineData.hairPorosity})`,
         routine: {
             name: routineData.name,
             scalpType: routineData.scalpType,
