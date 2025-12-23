@@ -51,6 +51,8 @@ function initAuthModal() {
     const toggleBtn = document.getElementById('auth-toggle-btn');
     const submitBtn = document.getElementById('auth-submit-btn');
     const messageEl = document.getElementById('auth-message');
+    const passwordConfirmWrapper = document.getElementById('auth-password-confirm-wrapper');
+    const passwordConfirmInput = document.getElementById('auth-password-confirm');
 
     if (!openBtn || !modal || !closeBtn || !form || !title || !subtitle || !toggle || !toggleBtn || !submitBtn || !messageEl) {
         return;
@@ -72,14 +74,16 @@ function initAuthModal() {
     function updateTexts() {
         if (mode === 'signup') {
             title.textContent = 'Create your account';
-            subtitle.textContent = 'Sign up to save your routines and access them anytime.';
+            subtitle.textContent = 'Sign up with your email and a secure password. You will receive a confirmation email.';
             submitBtn.textContent = 'Create account';
             toggle.innerHTML = 'Already have an account? <button type="button" class="text-pink-600 font-medium hover:underline" id="auth-toggle-btn">Log in</button>';
+            if (passwordConfirmWrapper) passwordConfirmWrapper.classList.remove('hidden');
         } else {
             title.textContent = 'Welcome back';
-            subtitle.textContent = 'Log in to access your saved routines.';
+            subtitle.textContent = 'Log in with your email and password to access your saved routines.';
             submitBtn.textContent = 'Log in';
             toggle.innerHTML = "Don't have an account? <button type=\"button\" class=\"text-pink-600 font-medium hover:underline\" id=\"auth-toggle-btn\">Sign up</button>";
+            if (passwordConfirmWrapper) passwordConfirmWrapper.classList.add('hidden');
         }
 
         // Re-bind toggle button after replacing innerHTML
@@ -110,9 +114,17 @@ function initAuthModal() {
 
         const email = emailInput.value.trim();
         const password = passwordInput.value;
+        const passwordConfirm = passwordConfirmInput ? passwordConfirmInput.value : '';
 
         if (!email || !password) {
             messageEl.textContent = 'Please enter your email and password.';
+            messageEl.classList.remove('text-green-600');
+            messageEl.classList.add('text-red-500');
+            return;
+        }
+
+        if (mode === 'signup' && password !== passwordConfirm) {
+            messageEl.textContent = 'Passwords do not match. Please re-enter the same password.';
             messageEl.classList.remove('text-green-600');
             messageEl.classList.add('text-red-500');
             return;
@@ -130,7 +142,7 @@ function initAuthModal() {
 
                 if (error) throw error;
 
-                messageEl.textContent = 'Signup successful. Please check your email to confirm your account.';
+                messageEl.textContent = 'Sign up successful. Please check your email inbox to confirm your account before logging in.';
                 messageEl.classList.remove('text-red-500');
                 messageEl.classList.add('text-green-600');
             } else {
@@ -139,9 +151,16 @@ function initAuthModal() {
                     password,
                 });
 
-                if (error) throw error;
-
-                messageEl.textContent = 'Login successful.';
+                if (error) {
+                    // Provide a cleaner message if email is not confirmed yet
+                    if (error.message && error.message.toLowerCase().includes('email') && error.message.toLowerCase().includes('confirm')) {
+                        messageEl.textContent = 'Your email address is not confirmed yet. Please check your inbox for the confirmation link and try again.';
+                    } else {
+                        throw error;
+                    }
+                } else {
+                    messageEl.textContent = 'Login successful.';
+                }
                 messageEl.classList.remove('text-red-500');
                 messageEl.classList.add('text-green-600');
             }
